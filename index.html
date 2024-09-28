@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Cycles</title>
+</head>
+<body>
+    <h1>JavaScript Cycles</h1>
+    <script>
+        //Задание 1
+        let sum = 0;
+        for (let i = 0; i < 1001; i++) {
+            sum += i;
+        }
+        let answer1 = `Сумма целых чисел от 1 до 1000 равна: ${sum}`;
+        console.log(answer1);
+
+        //Задание 2
+        let n = Math.round((Math.random() * 28) + 2);
+        let factorial = 1;
+        for (let i = 1; i <= n; i++) {
+            factorial *= i;
+        }
+        let answer2 = `Факториал ${n} равен: ${factorial}`;
+        console.log(answer2);
+
+        //Задание 3
+        let money = 0;
+        let age = 0;
+        for (age = 11; money <= 60000; age++) {
+            money += 1000 + 1200 * (age - 10);
+        }
+        let answer3 = `Через ${(age - 1) - 10} лет у Вити появится велосипед`;
+        console.log(answer3);
+
+        //Задание 4
+        let word = prompt("Введите слово для проверки на палиндромность: ");
+        word = word.toLowerCase();
+        let wordArr = word.split('');
+        let revArr = [];
+        wordArr.forEach(symbol => {
+            revArr.unshift(symbol);
+        });
+        let revWord = revArr.join('');
+        let ne = "";
+        if (word === revWord) {
+        } else {
+            ne = " не";
+        }
+        let answer4 = `Слово ${word}${ne} является палиндромом`;
+        console.log(answer4);
+        
+        //Задание 5
+        let number = Math.round(Math.random() * 100);
+        let userNumber = prompt("Угадайте целое число от 0 до 100: ");
+        for (let i = 0; i <= 10; i++) {
+            if (Math.abs(number - userNumber) > 10) {
+                userNumber = prompt("Холодно");
+            } else if (Math.abs(number - userNumber) <= 10 && Math.abs(number - userNumber) > 5 ) {
+                userNumber = prompt("Тепло");
+            } else if (Math.abs(number - userNumber) <= 5 && Math.abs(number - userNumber) > 0 ) {
+                userNumber = prompt("Горячо");
+            } else if (number - userNumber === 0) {
+                prompt("Вы выиграли!");
+                break;
+            } else {
+                userNumber = prompt("Введено некорректное значение");
+            }
+            if (i == 10) {
+                prompt("Вы проиграли!");
+            }
+        }
+    </script>
+</body>
+</html>
